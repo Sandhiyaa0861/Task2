@@ -1,0 +1,45 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sb
+
+ data_unemp = pd.read_csv("/content/unemployment.csv")
+
+data_unemp
+
+
+ data_unemp.head(20)
+
+data_unemp.tail(30)
+
+
+data_unemp.info()
+
+data_unemp.describe()
+
+
+data_unemp.size
+
+
+data_unemp.shape
+
+
+data_unemp.columns
+
+
+data_unemp.isnull().sum()
+
+data **visualization**
+
+pt.figure(figsize=(8,4))
+sb.heatmap(data_unemp.corr())
+pt.show()
+
+
+u_emp= data_unemp[['Region',' Estimated Unemployment Rate (%)']].groupby('Region').sum().sort_values(by=' Estimated Unemployment Rate (%)', ascending =False)
+u_emp
+
+pt.figure(figsize=(12,10))
+pt.title('Unemployment In India State Wise')
+sb.histplot(x=' Estimated Unemployment Rate (%)', hue="Region", data=data_unemp)
+pt.show()
